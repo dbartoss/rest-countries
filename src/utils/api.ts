@@ -1,4 +1,4 @@
-import { ALL_COUNTRIES, BASE_API_URL } from '../constants/api';
+import { ALL_COUNTRIES, BASE_API_URL, BY_ALPHA_CODES } from '../constants/api';
 import { Country } from '../models/Country';
 
 const fetchAbsolute = async (url: string): Promise<Response> =>
@@ -20,9 +20,7 @@ export const getSpecificCountry = async (
   alphaCode: string
 ): Promise<Country | null> => {
   try {
-    const response = await fetchAbsolute(
-      `/${alphaCode}?fields=name,population,region,capital,alpha3Code,flags`
-    );
+    const response = await fetchAbsolute(`${BY_ALPHA_CODES}/${alphaCode}`);
     return response.json();
   } catch (error) {
     console.error(error);
