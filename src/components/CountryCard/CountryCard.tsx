@@ -7,7 +7,7 @@ const CountryCard = ({ country }: { country: Country }): JSX.Element => {
 
   return (
     <section className={styles.card}>
-      <img src={flags.png} alt={`${name} flag`} className={styles.image} />
+      <img src={flags.svg} alt={`${name} flag`} className={styles.image} />
       <article className={styles.info}>
         <h4 className={styles.name}>{name}</h4>
         <ul className={styles.details}>

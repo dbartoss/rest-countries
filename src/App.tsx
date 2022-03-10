@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './containers/Home/Home';
+import CountryDetails from './containers/CountryDetails/CountryDetails';
 
 const App = (): JSX.Element => {
   return (
@@ -11,7 +12,11 @@ const App = (): JSX.Element => {
       <Header />
       <main className="main">
         <Routes>
-          <Route path="/" element={Home} />
+          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/country/:countryCode"
+            element={<CountryDetails />}
+          ></Route>
         </Routes>
       </main>
     </div>
