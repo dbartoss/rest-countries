@@ -15,3 +15,17 @@ export const getAllCountries = async (): Promise<Country[]> => {
     return [];
   }
 };
+
+export const getSpecificCountry = async (
+  alphaCode: string
+): Promise<Country | null> => {
+  try {
+    const response = await fetchAbsolute(
+      `/${alphaCode}?fields=name,population,region,capital,alpha3Code,flags`
+    );
+    return response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
